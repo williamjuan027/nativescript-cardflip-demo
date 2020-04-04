@@ -1,12 +1,8 @@
 <ActionBar title="Home">
 </ActionBar>
 
-<GridLayout>
-    <ScrollView>
-        <StackLayout class="home-panel">
-            <!--Add your page content here-->
-
-            <ns-card></ns-card>
-        </StackLayout>
-    </ScrollView>
-</GridLayout>
+<ScrollView class="container">
+  <StackLayout paddingTop="10">
+    <ns-card *ngFor="let card of cards" [config]="card"></ns-card>
+  </StackLayout>
+</ScrollView>

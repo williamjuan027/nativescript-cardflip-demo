@@ -1,5 +1,10 @@
-import { Component, AfterViewInit, ViewChild, ElementRef } from "@angular/core";
+import { Component, AfterViewInit, Input, ViewChild, ElementRef } from "@angular/core";
 import { Animation, AnimationDefinition } from "tns-core-modules/ui/animation";
+import { AnimationCurve } from "tns-core-modules/ui/enums";
+
+import { CardConfig } from "./card-config";
+
+const ANIMATION_DURATION = 700;
 
 @Component({
     selector: "ns-card",
@@ -9,91 +14,109 @@ import { Animation, AnimationDefinition } from "tns-core-modules/ui/animation";
 })
 export class CardComponent implements AfterViewInit {
 
+    @Input() config: CardConfig[];
+
     @ViewChild('front', { read: ElementRef, static: true }) front: ElementRef;
     @ViewChild('back', { read: ElementRef, static: true }) back: ElementRef;
 
     private isFront: boolean = true;
     private isAnimating: boolean = false;
 
-    constructor() {
-    }
+    constructor() {}
 
     ngAfterViewInit(): void {
-        this.back.nativeElement.rotateX = 180;
-        this.back.nativeElement.translateY = -50;
-        this.back.nativeElement.opacity = 0;
+        this.initializeCards();
     }
 
     flip(): void {
         if (!this.isAnimating) {
             this.isAnimating = true;
             if (this.isFront) {
-                this.flipToBack().then(() => this.isFront = false);
+                this.getFlipToBackAnimation().play().then(() => {
+                  this.isFront = false;
+                  this.isAnimating = false;
+                }).catch(err => {
+                  console.log('err', err);
+                  this.initializeCards();
+                  this.isAnimating = false;
+                });
             } else {
-                this.flipToFront().then(() => this.isFront = true);
+              this.getFlipToFrontAnimation().play().then(() => {
+                this.isFront = true;
+                this.isAnimating = false;
+              }).catch(err => {
+                console.log('err', err);
+                this.initializeCards();
+                this.isAnimating = false;
+              });
             }
         }
     }
 
-    flipToBack() {
-        const animationDefinition = [
+    private getFlipToBackAnimation(animationDuration: number = ANIMATION_DURATION): Animation {
+        const animationDefinition: AnimationDefinition[] = [
             {
                 target: this.front.nativeElement,
                 rotate: { x: -180, y: 0, z: 0 },
-                translate: { x: 0, y: -50 },
-                duration: 500
+                duration: animationDuration,
+                curve: AnimationCurve.easeInOut
             },
             {
                 target: this.back.nativeElement,
                 rotate: { x: 0, y: 0, z: 0 },
                 translate: { x: 0, y: 0 },
-                duration: 500
+                duration: animationDuration,
+                curve: AnimationCurve.easeInOut
             },
             {
                 target: this.back.nativeElement,
                 opacity: 1,
-                delay: 250,
+                delay: animationDuration / 2,
                 duration: 1
             },
             {
                 target: this.front.nativeElement,
                 opacity: 0,
-                delay: 250,
+                delay: animationDuration / 2,
                 duration: 1
             }
         ];
-        const animation = new Animation(animationDefinition, false);
-        return animation.play().then(() => this.isAnimating = false).catch(err => console.log('err', err));
+        return new Animation(animationDefinition, false);
     }
 
-    flipToFront() {
-        const animationDefinition = [
+    private getFlipToFrontAnimation(animationDuration: number = ANIMATION_DURATION): Animation {
+        const animationDefinition: AnimationDefinition[] = [
             {
                 target: this.front.nativeElement,
                 rotate: { x: 0, y: 0, z: 0 },
-                translate: { x: 0, y: 0 },
-                duration: 500
+                duration: animationDuration,
+                curve: AnimationCurve.easeInOut
             },
             {
                 target: this.back.nativeElement,
                 rotate: { x: 180, y: 0, z: 0 },
-                translate: { x: 0, y: - 50 },
-                duration: 500
+                duration: animationDuration,
+                curve: AnimationCurve.easeInOut
             },
             {
                 target: this.back.nativeElement,
                 opacity: 0,
-                delay: 250,
+                delay: animationDuration / 2,
                 duration: 1
             },
             {
                 target: this.front.nativeElement,
                 opacity: 1,
-                delay: 250,
+                delay: animationDuration / 2,
                 duration: 1
             }
         ];
-        const animation = new Animation(animationDefinition, false);
-        return animation.play().then(() => this.isAnimating = false).catch(err => console.log('err', err));
+        return new Animation(animationDefinition, false);
     }
+
+    private initializeCards(): void {
+      this.back.nativeElement.rotateX = 180;
+      this.back.nativeElement.opacity = 0;
+    }
+
 }

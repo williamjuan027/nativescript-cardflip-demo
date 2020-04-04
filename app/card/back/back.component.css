@@ -1,0 +1,17 @@
+.card-back {
+  padding: 10;
+  background-color: #fff;
+}
+
+.card-back > Label {
+  margin: 0 20;
+  text-align: center;
+  color: #000;
+  font-size: 16;
+  line-height: 10;
+  text-wrap: true;
+}
+
+.card-back > Button {
+  margin-top: 30;
+}

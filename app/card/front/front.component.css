@@ -1,0 +1,12 @@
+.card-front > .tint {
+  opacity: 0.4;
+}
+
+.card-front > .title {
+  vertical-align: middle;
+  horizontal-align: center;
+  color: #fff;
+  font-size: 30;
+  font-weight: bold;
+  letter-spacing: 0.1;
+}
