@@ -10,6 +10,4 @@ export class BackComponent {
 
   @Input() description: string;
 
-  constructor() {}
-
 }

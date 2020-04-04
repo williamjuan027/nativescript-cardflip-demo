@@ -22,8 +22,6 @@ export class CardComponent implements AfterViewInit {
     private isFront: boolean = true;
     private isAnimating: boolean = false;
 
-    constructor() {}
-
     ngAfterViewInit(): void {
         this.initializeCards();
     }

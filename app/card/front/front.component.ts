@@ -12,6 +12,4 @@ export class FrontComponent {
   @Input() tint: string;
   @Input() title: string;
 
-  constructor() {}
-
 }
