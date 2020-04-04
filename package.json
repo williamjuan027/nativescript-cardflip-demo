@@ -1,0 +1,64 @@
+{
+    "description": "NativeScript Application",
+    "license": "SEE LICENSE IN <your-license-filename>",
+    "readme": "NativeScript Application",
+    "repository": "<fill-your-repository-here>",
+    "nativescript": {
+        "id": "org.nativescript.blankng",
+        "tns-android": {
+            "version": "6.5.0"
+        },
+        "tns-ios": {
+            "version": "6.5.0"
+        },
+        "playground": {
+            "id": "1306342201.1508608389"
+        }
+    },
+    "dependencies": {
+        "@angular/animations": "8.2.14",
+        "@angular/common": "8.2.14",
+        "@angular/compiler": "8.2.14",
+        "@angular/core": "8.2.14",
+        "@angular/forms": "8.2.14",
+        "@angular/http": "8.0.0-beta.10",
+        "@angular/platform-browser": "8.2.14",
+        "@angular/platform-browser-dynamic": "8.2.14",
+        "@angular/router": "8.2.14",
+        "@nativescript/angular": "8.21.0",
+        "@nativescript/core": "6.5.0",
+        "@nativescript/theme": "2.3.3",
+        "@progress-nativechat/nativescript-nativechat": "3.0.0",
+        "kinvey-nativescript-sdk": "4.2.5",
+        "nativescript-accelerometer": "3.0.0",
+        "nativescript-angular": "8.21.0",
+        "nativescript-background-http": "4.2.1",
+        "nativescript-camera": "4.5.0",
+        "nativescript-image": "3.0.1",
+        "nativescript-geolocation": "5.1.0",
+        "nativescript-imagepicker": "7.1.0",
+        "nativescript-intl": "3.0.0",
+        "nativescript-iqkeyboardmanager": "1.5.1",
+        "nativescript-social-share": "1.6.0",
+        "nativescript-theme-core": "1.0.6",
+        "nativescript-ui-autocomplete": "6.0.1",
+        "nativescript-ui-calendar": "6.1.0",
+        "nativescript-ui-chart": "7.1.1",
+        "nativescript-ui-dataform": "6.0.0",
+        "nativescript-ui-gauge": "6.0.0",
+        "nativescript-ui-listview": "8.0.1",
+        "nativescript-ui-sidedrawer": "8.0.0",
+        "reflect-metadata": "0.1.13",
+        "rxjs": "6.5.4",
+        "rxjs-compat": "6.5.4",
+        "tns-core-modules": "6.5.0",
+        "zone.js": "0.10.2"
+    },
+    "devDependencies": {
+        "@angular/compiler-cli": "8.2.14",
+        "@ngtools/webpack": "8.3.24",
+        "nativescript-dev-webpack": "1.5.1",
+        "tns-platform-declarations": "6.5.0",
+        "typescript": "3.5.3"
+    }
+}
