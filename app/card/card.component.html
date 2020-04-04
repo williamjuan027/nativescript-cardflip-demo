@@ -1,0 +1,15 @@
+<GridLayout rows="*" columns="*" height="100" width="100"
+    (tap)="flip()">
+    <!-- margins here so it doesn't get cut when it goes over the parent's boundaries -->
+    <GridLayout #front margin="10" row="0" col="0"
+        backgroundColor="yellow" borderRadius="20">
+        <Label text="FRONT" color="#000"
+            verticalAlignment="center"
+            horizontalAlignment="center"></Label>
+    </GridLayout>
+    <GridLayout #back margin="10" row="0" col="0"
+        backgroundColor="green" borderRadius="20">
+        <Label text="BACK" color="#fff" verticalAlignment="center"
+            horizontalAlignment="center"></Label>
+    </GridLayout>
+</GridLayout>
