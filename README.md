@@ -1,6 +1,6 @@
 # Nativescript Card Flip
 
-This app is a demonstration of how to create a card flip effect utilizing Nativescript's 3d rotation
+This app is a demonstration of how to create a card flip effect utilizing Nativescript's 3d rotation. [Here](https://nativescripting.com/posts/cardflip-animation-in-nativescript) is a more in depth explanation of how this was done.
 
 ![demo](https://github.com/williamjuan027/nativescript-cardflip-demo/blob/master/screenshots/screenshot.gif)
 
