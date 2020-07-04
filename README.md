@@ -21,4 +21,18 @@ And the same command to run the app on Android:
 tns run android
 ```
 
-**Note:** Cards are set up in the `card` directory with the the front and back components in their respective folders.
+**Note:** Cards are set up in the [`card`](https://github.com/williamjuan027/nativescript-cardflip-demo/blob/master/app/card/) directory with the the front and back components in their respective folders.
+
+## Using the same Element for both sides of the card
+
+In order to use the same component/image on both the front and back (backwards version of the component/image) to create an illusion of flipping between the front and back of a single 2d object, you will need to apply a transformation to the content of the back of the card to reverse it in either the x or y direction depending on the desired flip animation direction by setting either `scaleX` or `scaleY` to -1.
+
+```html
+<GridLayout #back>
+  <GridLayout
+      scaleX="-1"   <!-- ADD THIS (or scaleY="-1") -->
+  >
+    <!-- back side card contents -->
+  </GridLayout>
+</GridLayout>
+```
